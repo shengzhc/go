@@ -1,12 +1,16 @@
 package main
 
 import (
-	"fmt"
-
 	"example.com/greetings"
+	"log"
 )
 
 func main() {
-	message := greetings.Hello("Shengzhe Chen")
-	fmt.Println(message)
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+	message, err := greetings.Hello("Shengzhe Chen")
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println(message)
 }
